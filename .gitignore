@@ -1,0 +1,9 @@
+.metadata/
+apache-tomcat-8.5.99/
+Servers/
+LoginPage/
+**/.settings/
+**/build/
+Batch2Login.zip
+**/.classpath
+Introduction/

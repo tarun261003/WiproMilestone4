@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.product">
+<class name="Product" table="Product">
+<id name="id" column="id" type="java.lang.Integer" >
+<generator class="assigned" /></id>
+<property name="type"  column="type"/>
+<property name="price"  column="price"/>
+</class>
+</hibernate-mapping>
