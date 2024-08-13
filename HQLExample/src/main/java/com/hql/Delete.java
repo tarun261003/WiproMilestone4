@@ -1,11 +1,12 @@
 package com.hql;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class Create {
+public class Delete {
 
 	public static void main(String[] args) {
 		Configuration cfg = new Configuration().configure();
@@ -13,18 +14,15 @@ public class Create {
 		Session session =sf.openSession();
 		Transaction tr = session.beginTransaction();
 		
-		Manager mr=new Manager();
-		mr.setDept("Marketing");
-		mr.setExp(12);
-		mr.setSalary(80000.00);
-		mr.setName("okok");
-		session.save(mr);
-		
+		Query query =session.createQuery("delete from Manager where id=:s");
+		query.setParameter("s", 4);
+		query.executeUpdate();
 		
 		tr.commit();
 		session.close();
 		sf.close();
 		
+
 	}
 
 }

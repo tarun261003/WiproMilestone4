@@ -1,30 +1,31 @@
-package com.hql;
+package com.pan;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class Create {
+public class Test {
 
 	public static void main(String[] args) {
 		Configuration cfg = new Configuration().configure();
-		SessionFactory sf= cfg.buildSessionFactory();
-		Session session =sf.openSession();
+		SessionFactory sf =cfg.buildSessionFactory();
+		Session session = sf.openSession();
 		Transaction tr = session.beginTransaction();
 		
-		Manager mr=new Manager();
-		mr.setDept("Marketing");
-		mr.setExp(12);
-		mr.setSalary(80000.00);
-		mr.setName("okok");
-		session.save(mr);
 		
+		PanCard pan = new PanCard();
+		pan.setCardNumber("ABLPA1234D");
+		Person per = new Person();
+		per.setName("Rahul Mehta");
+		pan.setPerson(per);
+		per.setCard(pan);
+		session.save(per);
 		
 		tr.commit();
 		session.close();
 		sf.close();
-		
+
 	}
 
 }
